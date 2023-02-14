@@ -5,17 +5,11 @@ C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\serverSite.runtimeconfig.json
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\serverSite.dll
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\serverSite.pdb
-C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\Microsoft.OpenApi.dll
-C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.csproj.AssemblyReference.cache
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.AssemblyInfoInputs.cache
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.AssemblyInfo.cs
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.csproj.CoreCompileInputs.cache
-C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\staticwebassets\msbuild.serverSite.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\staticwebassets\msbuild.build.serverSite.props
@@ -25,7 +19,6 @@ C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\scopedcss\bundle\serverSite.styles.css
-C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.csproj.CopyComplete
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.dll
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\refint\serverSite.dll
 C:\Users\MAQS\SocialMediaWebApp\Social-Media-Web-app\serverSite\obj\Debug\net7.0\serverSite.pdb
