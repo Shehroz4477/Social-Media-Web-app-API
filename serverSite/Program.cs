@@ -1,10 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using serverSite.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //  Add services to the container
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DbContext>((DbContextOptionsBuilder context) => context.UseSqlite(builder.Configuration.GetConnectionString("socialMediaSqliteConnection")));
+builder.Services.AddDbContext<DataContext>((DbContextOptionsBuilder context) => context.UseSqlite(builder.Configuration.GetConnectionString("socialMediaSqliteConnection")));
 
 var app = builder.Build();
 
