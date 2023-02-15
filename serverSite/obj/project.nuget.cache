@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+YctvwE6jVvOugoFJd7tPZhqB1v+dd/C/fjOWyivPBb0KM0lMMb/6cfQTLD/8jr0JJTTV0Z0hgEH4HqAWCC9jw==",
+  "dgSpecHash": "mj49PCd7KI0bN3kyVnSu22UbHuNmwdkWOY3Ya8l5imlGaLitK+WO8Na6wFV+nuM4lHCdOQhGaJuTrVUqE5ojEw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serverSite\\serverSite.csproj",
+  "projectFilePath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MAQS\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\MAQS\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.1\\microsoft.data.sqlite.core.7.0.1.nupkg.sha512",

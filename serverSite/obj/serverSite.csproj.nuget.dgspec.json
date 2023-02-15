@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MAQS\\Social-Media-Web-app\\serverSite\\serverSite.csproj": {}
+    "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MAQS\\Social-Media-Web-app\\serverSite\\serverSite.csproj": {
+    "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MAQS\\Social-Media-Web-app\\serverSite\\serverSite.csproj",
+        "projectUniqueName": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj",
         "projectName": "serverSite",
-        "projectPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serverSite\\serverSite.csproj",
+        "projectPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj",
         "packagesPath": "C:\\Users\\MAQS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serverSite\\obj\\",
+        "outputPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MAQS\\AppData\\Roaming\\NuGet\\NuGet.Config"
