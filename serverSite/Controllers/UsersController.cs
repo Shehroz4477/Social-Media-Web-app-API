@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using serverSite.Data;
 using serverSite.Entities;
 
@@ -11,19 +12,18 @@ namespace serverSite.Controllers
         private readonly DataContext _context;
         public UsersController(DataContext context)
         {
-            _context = context;
-            
+            _context = context;            
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<AppUser>> GetUsers()
+        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
-            return _context.Users.ToList();
+            return await _context.Users.ToListAsync();
         }
 
         [HttpGet("{Id}")]
-        public ActionResult<AppUser> GetUser(int Id){
-            return _context.Users.Find(Id);
+        public async Task<ActionResult<AppUser>> GetUser(int Id){
+            return await _context.Users.FindAsync(Id);
         }
     }
 }
