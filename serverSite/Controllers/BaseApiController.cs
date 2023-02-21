@@ -16,5 +16,12 @@ namespace serverSite.Controllers
         public async Task<bool> IsUserExist(DataContext context,int Id){
             return await context.Users.AnyAsync((AppUser User) => User.Id == Id);
         }
+        public async Task<AppUser> GetUser(DataContext context,string UserName){
+            return await context.Users.SingleOrDefaultAsync((AppUser User) => User.UserName == UserName.ToLower());
+        }
+
+        public async Task<AppUser> GetUser(DataContext context,int Id){
+            return await context.Users.SingleOrDefaultAsync((AppUser User) => User.Id == Id);
+        }
     }
 }
