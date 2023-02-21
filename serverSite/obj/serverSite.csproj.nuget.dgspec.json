@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MAQS\\SocialMediaWebApp\\Social-Media-Web-app\\serverSite\\serverSite.csproj": {}
+    "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MAQS\\SocialMediaWebApp\\Social-Media-Web-app\\serverSite\\serverSite.csproj": {
+    "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MAQS\\SocialMediaWebApp\\Social-Media-Web-app\\serverSite\\serverSite.csproj",
+        "projectUniqueName": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj",
         "projectName": "serverSite",
-        "projectPath": "C:\\Users\\MAQS\\SocialMediaWebApp\\Social-Media-Web-app\\serverSite\\serverSite.csproj",
+        "projectPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj",
         "packagesPath": "C:\\Users\\MAQS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MAQS\\SocialMediaWebApp\\Social-Media-Web-app\\serverSite\\obj\\",
+        "outputPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MAQS\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,18 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
