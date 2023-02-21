@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using serverSite.Data;
+using serverSite.Interfaces;
+using serverSite.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>((DbContextOptionsBuilder context) => context.UseSqlite(builder.Configuration.GetConnectionString("socialMediaSqliteConnection")));
 builder.Services.AddCors();
+builder.Services.AddScoped<ITokenService,TokenService>();
 
 var app = builder.Build();
 
