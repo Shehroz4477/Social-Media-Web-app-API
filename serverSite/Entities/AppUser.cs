@@ -4,7 +4,7 @@ namespace serverSite.Entities
 {
     public class AppUser
     {
-        [Key] // specify the primary key option
+        [Key] // specify the primary key
         public int Id { get; set; }
         public string UserName { get; set; }
         public byte[] PasswordHash { get; set; }
