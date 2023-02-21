@@ -2,6 +2,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using serverSite.Data;
+using serverSite.DTOs;
 using serverSite.Entities;
 
 namespace serverSite.Controllers
@@ -16,13 +17,16 @@ namespace serverSite.Controllers
         }
 
         [HttpPost("register")] // Post: /api/account/register....
-        public async Task<ActionResult<AppUser>> Register(string userName, string password){
+        public async Task<ActionResult<AppUser>> Register(RegisterDTO registerDTO){
+
+            if(await this.IsUserExist(_context,registerDTO.UserName)) return BadRequest("User Already Exist");
+
             using var hmac = new HMACSHA512();
 
             var user = new AppUser
             {
-                UserName = userName,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
+                UserName = registerDTO.UserName.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
                 PasswordSalt = hmac.Key
             };
 
@@ -31,6 +35,5 @@ namespace serverSite.Controllers
 
             return user;
         }
-        
     }
 }
