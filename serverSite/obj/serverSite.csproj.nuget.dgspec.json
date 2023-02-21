@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj": {}
+    "C:\\Users\\MAQS\\DotNetCore\\7\\Social-Media-Web-app\\serverSite\\serverSite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj": {
+    "C:\\Users\\MAQS\\DotNetCore\\7\\Social-Media-Web-app\\serverSite\\serverSite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj",
+        "projectUniqueName": "C:\\Users\\MAQS\\DotNetCore\\7\\Social-Media-Web-app\\serverSite\\serverSite.csproj",
         "projectName": "serverSite",
-        "projectPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\serverSite.csproj",
+        "projectPath": "C:\\Users\\MAQS\\DotNetCore\\7\\Social-Media-Web-app\\serverSite\\serverSite.csproj",
         "packagesPath": "C:\\Users\\MAQS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MAQS\\Social-Media-Web-app\\serversite\\obj\\",
+        "outputPath": "C:\\Users\\MAQS\\DotNetCore\\7\\Social-Media-Web-app\\serverSite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MAQS\\AppData\\Roaming\\NuGet\\NuGet.Config"
