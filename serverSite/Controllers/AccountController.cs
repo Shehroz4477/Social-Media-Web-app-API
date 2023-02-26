@@ -4,20 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 using serverSite.Data;
 using serverSite.DTOs;
 using serverSite.Entities;
+using serverSite.Interfaces;
 
 namespace serverSite.Controllers
 {
     public class AccountController : BaseApiController
     {
         private readonly DataContext _context;
-        public AccountController(DataContext context)
+        private readonly ITokenService _tokenService;
+        public AccountController(DataContext context, ITokenService tokenService)
         {
+            _tokenService = tokenService;
             _context = context;
-            
         }
 
         [HttpPost("register")] // Post: /api/account/register....
-        public async Task<ActionResult<AppUser>> Register(RegisterDTO registerDTO)
+        public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
         {
 
             if(await this.IsUserExist(_context,registerDTO.UserName)) return BadRequest("User Already Exist");
@@ -34,15 +36,23 @@ namespace serverSite.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return user;
+            return new UserDTO
+            {
+                UserName = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<AppUser>> Login(LoginDTO loginDTO)
+        public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO)
         {
             var user = await this.GetUser(_context, loginDTO.UserName);
             if(!this._UserAuthorized(user,loginDTO)) return Unauthorized("Invalid User Name or Password");
-            return user;
+            return new UserDTO
+            {
+                UserName = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
         // private methods
