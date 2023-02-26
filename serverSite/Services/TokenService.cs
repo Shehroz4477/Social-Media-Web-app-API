@@ -4,6 +4,7 @@ using System.Text;
 using serverSite.Entities;
 using serverSite.Interfaces;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic;
 
 namespace serverSite.Services
 {
@@ -25,7 +26,7 @@ namespace serverSite.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = new DateTime().AddDays(2),
+                Expires = DateTime.Now.AddDays(7),
                 SigningCredentials = cred
             };
 
@@ -46,7 +47,7 @@ namespace serverSite.Services
                             new Claim(JwtRegisteredClaimNames.NameId,user.UserName)
                         }
                     ),
-                    Expires = new DateTime().AddDays(2),
+                    Expires = DateTime.Now.AddDays(2),
                     SigningCredentials = new SigningCredentials(
                         new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey)),
                         SecurityAlgorithms.HmacSha512Signature
