@@ -19,12 +19,16 @@ namespace serverSite.Data
 
         public async Task<AppUser> GetUserByNameAsync(string userName)
         {
-            return await _context.Users.SingleOrDefaultAsync((AppUser user) => user.UserName == userName.ToLower());
+            return await _context.Users
+            .Include((AppUser user) => user.Photos)
+            .SingleOrDefaultAsync((AppUser user) => user.UserName == userName.ToLower());
         }
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
-            return await _context.Users.ToListAsync<AppUser>();
+            return await _context.Users
+            .Include((AppUser user) => user.Photos)
+            .ToListAsync<AppUser>();
         }
 
         public async Task<bool> SaveAllAsync()
