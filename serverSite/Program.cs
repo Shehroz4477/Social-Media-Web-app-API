@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using serverSite.Data;
 using serverSite.Extensions;
 using serverSite.Middleware;
 
@@ -15,5 +17,19 @@ app.UseCors(configurePolicy => configurePolicy.AllowAnyHeader().AllowAnyMethod()
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+try
+{
+    var context = services.GetRequiredService<DataContext>();
+    await context.Database.MigrateAsync();
+    await Seed.SeedUserData(context);
+}
+catch (Exception ex)
+{
+    var logger = services.GetService<ILogger<Program>>();
+    logger.LogError(ex,"An error occurred during migration");
+}
 
 app.Run();
