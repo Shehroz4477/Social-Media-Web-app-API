@@ -13,6 +13,7 @@ namespace serverSite.Extensions
             services.AddDbContext<DataContext>((DbContextOptionsBuilder context) => context.UseSqlite(config.GetConnectionString("socialMediaSqliteConnection")));
             services.AddCors();
             services.AddScoped<ITokenService,TokenService>();
+            services.AddScoped<IUserRepository,UserRepository>();
 
             return services;
         }
