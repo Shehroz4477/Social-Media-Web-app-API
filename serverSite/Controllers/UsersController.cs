@@ -1,9 +1,11 @@
+using System.Collections;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using serverSite.Data;
-using serverSite.Entities;
+using serverSite.DTOs;
 using serverSite.Interfaces;
 
 namespace serverSite.Controllers
@@ -12,25 +14,32 @@ namespace serverSite.Controllers
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
-        public UsersController(IUserRepository userRepository)
+        private readonly IMapper _mapper;
+        public UsersController(IUserRepository userRepository, IMapper mapper)
         {
+            _mapper = mapper;
             _userRepository = userRepository;              
         }
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers()
         {
-            return Ok(await _userRepository.GetUsersAsync());
+            var users = await _userRepository.GetUsersAsync();
+            var usersReturn = _mapper.Map<IEnumerable<MemberDTO>>(users);
+            return Ok(usersReturn);
+            // return Ok(_mapper.Map<IEnumerable<MemberDTO>>(await _userRepository.GetUsersAsync()));
         }
 
         [HttpGet("GetById/{Id}")]
-        public async Task<ActionResult<AppUser>> GetUser(int Id){
-            return await _userRepository.GetUserByIdAsync(Id);
+        public async Task<ActionResult<MemberDTO>> GetUser(int Id)
+        {
+            return _mapper.Map<MemberDTO>(await _userRepository.GetUserByIdAsync(Id));
         }
 
         [HttpGet("GetByName/{UserName}")]
-        public async Task<ActionResult<AppUser>> GetUser(string UserName){
-            return await _userRepository.GetUserByNameAsync(UserName);
+        public async Task<ActionResult<MemberDTO>> GetUser(string UserName)
+        {
+            return _mapper.Map<MemberDTO>(await _userRepository.GetUserByNameAsync(UserName));
         }
     }
 }
