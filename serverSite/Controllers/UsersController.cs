@@ -24,19 +24,19 @@ namespace serverSite.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers()
         {
-            return Ok(_mapper.Map<IEnumerable<MemberDTO>>(await _userRepository.GetUsersAsync()));
+            return Ok(await _userRepository.GetMembersAsync());
         }
 
         [HttpGet("GetById/{Id}")]
         public async Task<ActionResult<MemberDTO>> GetUser(int Id)
         {
-            return _mapper.Map<MemberDTO>(await _userRepository.GetUserByIdAsync(Id));
+            return await _userRepository.GetMemberByIdAsync(Id);
         }
 
         [HttpGet("GetByName/{UserName}")]
         public async Task<ActionResult<MemberDTO>> GetUser(string UserName)
         {
-            return _mapper.Map<MemberDTO>(await _userRepository.GetUserByNameAsync(UserName));
+            return await _userRepository.GetMemberByNameAsync(UserName);
         }
     }
 }
