@@ -24,10 +24,7 @@ namespace serverSite.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers()
         {
-            var users = await _userRepository.GetUsersAsync();
-            var usersReturn = _mapper.Map<IEnumerable<MemberDTO>>(users);
-            return Ok(usersReturn);
-            // return Ok(_mapper.Map<IEnumerable<MemberDTO>>(await _userRepository.GetUsersAsync()));
+            return Ok(_mapper.Map<IEnumerable<MemberDTO>>(await _userRepository.GetUsersAsync()));
         }
 
         [HttpGet("GetById/{Id}")]

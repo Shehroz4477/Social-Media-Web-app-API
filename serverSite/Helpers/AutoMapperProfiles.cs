@@ -8,7 +8,14 @@ namespace serverSite.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<AppUser,MemberDTO>();
+            CreateMap<AppUser,MemberDTO>().ForMember
+            (
+                destinationMember => destinationMember.PhotoUrl,
+                options => options.MapFrom
+                (   
+                    source => source.Photos.FirstOrDefault(photo => photo.IsMain).Url
+                )
+            );
             CreateMap<Photo,PhotoDTO>();
         }
     }
