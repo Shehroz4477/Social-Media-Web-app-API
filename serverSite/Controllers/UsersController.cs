@@ -1,15 +1,14 @@
 using System.Collections;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using serverSite.Data;
 using serverSite.DTOs;
 using serverSite.Interfaces;
 
 namespace serverSite.Controllers
 {
+    [EnableCors]
     [Authorize]
     public class UsersController : BaseApiController
     {
