@@ -2,10 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using serverSite.Data;
 using serverSite.Extensions;
 using serverSite.Middleware;
-
+var policyName = "_developmentPolicy";
 var builder = WebApplication.CreateBuilder(args);
 
 //  Add services to the container
+builder.Services.AddCors(options => options.AddPolicy(name: policyName,policy => policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod()));
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 
@@ -13,7 +14,7 @@ var app = builder.Build();
 
 //  Configure the HTTP request pipeline
 app.UseMiddleware<ExceptionMiddleware>();
-app.UseCors(configurePolicy => configurePolicy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+app.UseCors(policyName);
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
