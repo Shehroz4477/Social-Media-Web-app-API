@@ -21,6 +21,7 @@ namespace serverSite.Helpers
                     opttions => opttions.MapFrom(sourceMember => sourceMember.DateOfBirth.CalculateAge())
                 );
             CreateMap<Photo,PhotoDTO>();
+            CreateMap<MemberUpdateDTO, AppUser>();
         }
     }
 }
