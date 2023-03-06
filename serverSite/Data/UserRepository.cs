@@ -67,10 +67,10 @@ namespace serverSite.Data
 
         public async Task<bool> UpdateMemberAsync(MemberUpdateDTO memebrUpdate,string userName)
         {
-            var member = await this.GetMemberByNameAsync(userName);
-            if(member != null)
+            var user = await this.GetUserByNameAsync(userName);
+            if(user != null)
             {
-                _mapper.Map(memebrUpdate,member);
+                _mapper.Map(memebrUpdate,user);
                 if(await this.SaveAllAsync()) return true;
             }
             return false;
