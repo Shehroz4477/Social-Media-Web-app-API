@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security.Claims;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -36,6 +37,18 @@ namespace serverSite.Controllers
         public async Task<ActionResult<MemberDTO>> GetUser(string UserName)
         {
             return await _userRepository.GetMemberByNameAsync(UserName);
+        }
+
+        [HttpPut("update")]
+        public async Task<ActionResult> UpdateMember(MemberUpdateDTO memeberUpdate)
+        {
+            var userName = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if(userName != null)
+            {
+               if(await _userRepository.UpdateMemberAsync(memeberUpdate,userName)) return NoContent();
+                BadRequest("Failed to update user");
+            }
+            return NotFound();
         }
     }
 }
