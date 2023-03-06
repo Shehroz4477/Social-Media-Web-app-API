@@ -12,6 +12,7 @@ namespace serverSite.Interfaces
         public Task<MemberDTO> GetMemberByIdAsync(int id);
         public Task<MemberDTO> GetMemberByNameAsync(string userName);
         public Task<bool> SaveAllAsync();
+        public Task<bool> UpdateMemberAsync(MemberUpdateDTO memebrUpdate,string userName);
         public void Update(AppUser user);
 
     }
