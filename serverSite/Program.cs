@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using serverSite.Data;
 using serverSite.Extensions;
 using serverSite.Middleware;
+
+
 var developmemntPolicy = "_developmentPolicy";
 var builder = WebApplication.CreateBuilder(args);
 

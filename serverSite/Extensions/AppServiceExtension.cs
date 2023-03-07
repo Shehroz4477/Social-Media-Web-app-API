@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using serverSite.Data;
+using serverSite.Helpers;
 using serverSite.Interfaces;
 using serverSite.Services;
 
@@ -15,6 +16,7 @@ namespace serverSite.Extensions
             services.AddScoped<ITokenService,TokenService>();
             services.AddScoped<IUserRepository,UserRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
 
             return services;
         }
