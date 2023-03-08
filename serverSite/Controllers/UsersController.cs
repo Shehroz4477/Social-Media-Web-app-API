@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using serverSite.DTOs;
+using serverSite.Entities;
+using serverSite.Extensions;
 using serverSite.Interfaces;
 
 namespace serverSite.Controllers
@@ -15,8 +17,10 @@ namespace serverSite.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-        public UsersController(IUserRepository userRepository, IMapper mapper)
+        private readonly IPhotoServices _photoServices;
+        public UsersController(IUserRepository userRepository, IMapper mapper,IPhotoServices photoServices)
         {
+            _photoServices = photoServices;
             _mapper = mapper;
             _userRepository = userRepository;              
         }
@@ -49,6 +53,24 @@ namespace serverSite.Controllers
                 BadRequest("Failed to update user");
             }
             return NotFound();
+        }
+
+        [HttpPost("addPhoto")]
+        public async Task<ActionResult<PhotoDTO>> AddPhoto(IFormFile file)
+        {
+            var user = await _userRepository.GetMemberByNameAsync(User.GetUserName());
+            if(user  == null) return NotFound();
+            var result = await _photoServices.AddPhoto(file);
+            if(result.Error != null) return BadRequest(result.Error.Message);
+            var photo = new Photo
+            {
+                Url = result.SecureUrl.AbsoluteUri,
+                PublicId = result.PublicId
+            };
+            if(user.Photos.Count == 0) photo.IsMain = true;
+            user.Photos.Add(photo);
+            if(await _userRepository.SaveAllAsync()) return _mapper.Map<PhotoDTO>(photo);
+            return BadRequest("Faild to upload photo");
         }
     }
 }
