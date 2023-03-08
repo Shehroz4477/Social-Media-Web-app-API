@@ -58,18 +58,27 @@ namespace serverSite.Controllers
         [HttpPost("addPhoto")]
         public async Task<ActionResult<PhotoDTO>> AddPhoto(IFormFile file)
         {
-            var user = await _userRepository.GetMemberByNameAsync(User.GetUserName());
+            var user = await _userRepository.GetUserByNameAsync(User.GetUserName());
             if(user  == null) return NotFound();
             var result = await _photoServices.AddPhoto(file);
             if(result.Error != null) return BadRequest(result.Error.Message);
             var photo = new Photo
             {
                 Url = result.SecureUrl.AbsoluteUri,
-                PublicId = result.PublicId
+                PublicId = result.PublicId,
+                IsMain = false
             };
             if(user.Photos.Count == 0) photo.IsMain = true;
             user.Photos.Add(photo);
-            if(await _userRepository.SaveAllAsync()) return _mapper.Map<PhotoDTO>(photo);
+            if(await _userRepository.SaveAllAsync())
+            {
+                return CreatedAtAction
+                (
+                    nameof(GetUser), 
+                    new {userName = user.UserName},
+                    _mapper.Map<PhotoDTO>(photo)
+                );
+            }
             return BadRequest("Faild to upload photo");
         }
     }
