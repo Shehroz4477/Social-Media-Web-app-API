@@ -1,3 +1,5 @@
+using serverSite.Entities;
+
 namespace serverSite.DTOs
 {
     public class MemberDTO
@@ -15,6 +17,6 @@ namespace serverSite.DTOs
         public string Interests { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public List<PhotoDTO> Photos { get; set; }
+        public List<Photo> Photos { get; set; }
     }
 }
