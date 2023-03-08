@@ -17,6 +17,7 @@ namespace serverSite.Extensions
             services.AddScoped<IUserRepository,UserRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+            services.AddScoped<IPhotoServices,PhotoServices>();
 
             return services;
         }
