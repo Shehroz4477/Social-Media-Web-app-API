@@ -17,7 +17,7 @@ namespace serverSite.Controllers
             return await context.Users.AnyAsync((AppUser User) => User.Id == Id);
         }
         public async Task<AppUser> GetUser(DataContext context,string UserName){
-            return await context.Users.SingleOrDefaultAsync((AppUser User) => User.UserName == UserName.ToLower());
+            return await context.Users.Include(user => user.Photos).SingleOrDefaultAsync((AppUser User) => User.UserName == UserName.ToLower());
         }
 
         public async Task<AppUser> GetUser(DataContext context,int Id){
