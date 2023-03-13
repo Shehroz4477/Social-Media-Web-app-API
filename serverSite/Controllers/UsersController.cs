@@ -96,5 +96,22 @@ namespace serverSite.Controllers
             if(await _userRepository.SaveAllAsync()) return NoContent();
             return BadRequest("Problem setting the main photo");
         }
+
+        [HttpDelete("deletePhoto/{photoId}")]
+        public async Task<ActionResult> DeletePhoto(int photoId)
+        {
+            var user = await _userRepository.GetUserByNameAsync(User.GetUserName());
+            var photo = user.Photos.FirstOrDefault(photo => photo.Id == photoId);
+            if(photo == null) return NotFound();
+            if(photo.IsMain) return BadRequest("You can't delete your main photo");
+            if(photo.PublicId != null)
+            {
+                var result = await _photoServices.DeletePhoto(photo.PublicId);
+                if(result.Error != null) return BadRequest(result.Error.Message);
+            }
+             user.Photos.Remove(photo);
+             if(await _userRepository.SaveAllAsync()) return Ok();
+             return BadRequest("Problem deleting photo");
+        }
     }
 }
